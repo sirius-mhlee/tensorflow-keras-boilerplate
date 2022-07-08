@@ -40,7 +40,6 @@ model.evaluate(x=test_generator, steps=len(test_generator),
     max_queue_size=Config.max_queue_size, workers=Config.workers)
 
 # Save Output Model Weight and Plot Image
-# - need package install command : pip install pydot, apt install graphviz
 output_name = './output_models/{}'.format(datetime.now().astimezone().strftime('%Y%m%d_%H%M%S'))
 model.save_weights(output_name)
 plot_model(model, to_file='{}.jpg'.format(output_name), show_shapes=True)

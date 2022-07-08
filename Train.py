@@ -37,7 +37,6 @@ with mirrored_strategy.scope():
 print_model_summary(model)
 
 # Define Callback
-# - tensorboard command : tensorboard --logdir=logs --host=0.0.0.0 --port=6006
 callbacks=[TensorBoard('./logs/{}'.format(datetime.now().astimezone().strftime('%Y%m%d_%H%M%S'))),
     ModelCheckpoint(filepath='./checkpoints/{epoch:02d}', monitor='val_loss', verbose=1, save_best_only=True, save_weights_only=True, period=Config.checkpoint_callback_period)]
 
