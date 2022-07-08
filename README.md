@@ -19,6 +19,8 @@ sudo apt install graphviz
 python Train.py
 ```
 
+![train_result.png](./example/train_result.png)
+
 ## Test
 
 > Need `Train` step
@@ -26,6 +28,10 @@ python Train.py
 ```shell
 python Test.py
 ```
+
+![test_result.png](./example/test_result.png)
+
+![output_model_result.png](./example/output_model_result.png)
 
 ## Predict
 
@@ -35,6 +41,8 @@ python Test.py
 python Predict.py
 ```
 
+![predict_result.png](./example/predict_result.png)
+
 ## Tensorboard
 
 > Need `Train` step
@@ -42,3 +50,5 @@ python Predict.py
 ```shell
 tensorboard --logdir=logs --host=0.0.0.0 --port=6006
 ```
+
+![tensorboard_result.png](./example/tensorboard_result.png)
