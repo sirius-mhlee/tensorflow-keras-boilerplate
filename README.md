@@ -31,7 +31,7 @@ python Test.py
 
 ![test_result.png](./example/test_result.png)
 
-![output_model_result.png](./example/output_model_result.png)
+![output_model_result.jpg](./example/output_model_result.jpg)
 
 ## Predict
 
