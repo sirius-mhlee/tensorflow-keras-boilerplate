@@ -3,9 +3,7 @@ from datetime import datetime
 from tensorflow import distribute
 from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.optimizers import SGD
-
-from tensorflow.keras.callbacks import TensorBoard
-from tensorflow.keras.callbacks import ModelCheckpoint
+from tensorflow.keras.callbacks import TensorBoard, ModelCheckpoint
 
 from Util.DataSequence import *
 from Util.Print import *
@@ -38,7 +36,7 @@ print_model_summary(model)
 
 # Define Callback
 callbacks=[TensorBoard('./logs/{}'.format(datetime.now().astimezone().strftime('%Y%m%d_%H%M%S'))),
-    ModelCheckpoint(filepath='./checkpoints/{epoch:02d}', monitor='val_loss', verbose=1, save_best_only=True, save_weights_only=True, period=Config.checkpoint_callback_period)]
+    ModelCheckpoint(filepath='./checkpoints/{epoch:02d}', monitor='val_loss', verbose=1, save_best_only=True, save_weights_only=True, save_freq='epoch')]
 
 # Train Model
 model.fit(epochs=Config.train_epochs,

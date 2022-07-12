@@ -3,7 +3,6 @@ train_batch_size=32
 learning_rate=0.01
 input_shape=(32, 32, 3)
 num_classes=10
-checkpoint_callback_period=1
 
 validation_batch_size=32
 

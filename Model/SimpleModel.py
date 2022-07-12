@@ -1,6 +1,8 @@
 from tensorflow.keras.models import Model
 from tensorflow.keras.layers import *
 
+from Layer.SimpleDense import *
+
 class SimpleModel():
     def __getattr__(self, name):
         return getattr(self.model, name)
@@ -20,7 +22,7 @@ class SimpleModel():
 
         x = Dense(512, activation='relu')(x)
         x = Dropout(0.5)(x)
-        x = Dense(512, activation='relu')(x)
+        x = SimpleDense(512, activation='relu')(x)
 
         outputs = Dense(num_classes, activation='softmax')(x)
 
