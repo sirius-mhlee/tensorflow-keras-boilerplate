@@ -9,7 +9,7 @@ import Config
 # Define Model using Multi GPU
 mirrored_strategy = distribute.MirroredStrategy()
 with mirrored_strategy.scope():
-    model = SimpleModel(input_shape=Config.input_shape, num_classes=Config.num_classes)
+    model = SimpleModel()
 
 # Print Model Summary
 print_model_summary(model)

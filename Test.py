@@ -18,7 +18,7 @@ cifar10 = tf.keras.datasets.cifar10
 (_, _), (test_x, test_y) = cifar10.load_data()
 
 def func_preprocess(x, y):
-    return (x / 255.0), to_categorical(y, Config.num_classes)
+    return (x / 255.0), to_categorical(y, SimpleModel.num_classes)
 
 # Prepare Generator
 test_generator = DataSequence(test_x, test_y, batch_size=Config.test_batch_size, func_preprocess=func_preprocess)
@@ -26,7 +26,7 @@ test_generator = DataSequence(test_x, test_y, batch_size=Config.test_batch_size,
 # Define Model using Multi GPU
 mirrored_strategy = distribute.MirroredStrategy()
 with mirrored_strategy.scope():
-    model = SimpleModel(input_shape=Config.input_shape, num_classes=Config.num_classes)
+    model = SimpleModel()
     model.compile(optimizer=SGD(learning_rate=Config.learning_rate), loss=CategoricalCrossentropy, metrics=[CategoricalAccuracy])
 
 # Print Model Summary
